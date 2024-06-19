@@ -1,0 +1,102 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;  /* Changed to column to accommodate footer */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+    position: relative;
+}
+
+.container {
+    background-color: #1e1e1e;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    z-index: 1; /* Ensure it is above the body blur */
+}
+
+h1 {
+    margin-bottom: 1em;
+    color: #ffffff;
+}
+
+input[type="text"] {
+    width: calc(100% - 2em);
+    padding: 0.75em;
+    margin-bottom: 1em;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75em 1.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+input[type="submit"]:disabled {
+    background-color: #0056b3;
+    cursor: not-allowed;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    position: fixed; /* Changed to fixed to stay on top */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 1000; /* Higher z-index to stay on top */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#errorMessage {
+    color: red;
+    display: none;
+    margin-top: 1em;
+    padding: 0.5em;  /* Add padding to the error message */
+}
+
+body.loading .container {
+    filter: blur(5px);
+}
+
+body.loading .loader {
+    display: block;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 0.9em;
+    color: #888;
+}

@@ -1,0 +1,25 @@
+- python website to take user steam profile
+- get all perfect games (100% achievements)
+- get the picture/cover of all those games 
+    - api endpoit for the pictures is scuffed ~ might need to use the recentplayed endpoint
+    - example url for 1 game https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=B45DCA2BA369337FE41C361F9EF25210&steamid=76561198043396026&format=json&include_appinfo=true&appids_filter[0]=238960
+    - will include icon url
+        - url for pictures follows this rule "https://cdn.akamai.steamstatic.com/steam/apps/{APPID}/header.jpg"
+            - hash is the data from icon_url in the result from the webapi
+        - https://stackoverflow.com/questions/7391945/how-do-i-read-image-data-from-a-url-in-python
+            - example to create image from url
+- stitch them together for a artwork (picture size has to be a concern)
+    - small example https://stackoverflow.com/questions/30227466/combine-several-images-horizontally-with-python
+- maybe include the steam "perfect game" banner under each logo/cover 
+- return the whole picture to the user for download
+
+- run that website in a docker container
+- perfectImage.skijearz.xyz as a domain name maybe
+- 5 mb limit 
+- maybe 4x4 per site multiple sites either multiple images or gif 
+- write to banner with https://www.educative.io/answers/how-to-write-text-on-an-image-in-python
+
+
+
+
+steamwebapi might be broken as img_icon_url is the only image included right now but the image_logo_url should be included aswell but isnt

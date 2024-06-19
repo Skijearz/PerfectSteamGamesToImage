@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteamID Input</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Your SteamID</h1>
+        <form id="steamForm" method="POST">
+            <input type="text" name="steamid" id="steamid" placeholder="SteamID" required>
+            <input type="submit" value="Submit" id="submitButton">
+        </form>
+        <div id="errorMessage"></div>
+    </div>
+    <div class="loader" id="loader"></div> <!-- Move loader outside the container -->
+    <footer>
+        <p>&copy; 2024 <a href="https://github.com/Skijearz">Skijearz</a></p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

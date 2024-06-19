@@ -62,6 +62,8 @@ class PerfectGamesToImage:
 
 
     async def save_images_to_zip(self: PerfectGamesToImage,images: list)-> bool:
+        if not os.path.exists("output"):
+            os.mkdir("output")
         try:
             zip_file = zipfile.ZipFile(f"output/{self.steam_id}.zip","w",zipfile.ZIP_DEFLATED)
             for i,image in enumerate(images):
@@ -226,8 +228,7 @@ class PerfectGamesToImage:
                             return None
                     name = json_data["playerstats"]["gameName"]
                     return(appid,number_achievements,name)
-                else:
-                    return None
+                return None
         except aiohttp.ClientConnectionError:
             return None
 

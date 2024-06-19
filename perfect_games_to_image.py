@@ -57,7 +57,8 @@ class PerfectGamesToImage:
             return False
         finished_perfect_games_images_with_banners = await self.add_banner_to_images(all_perfect_games_header_images,perfect_games)
         finished_images = await self.stitch_images_together(finished_perfect_games_images_with_banners)
-        await self.save_images_to_zip(finished_images)
+        if not await self.save_images_to_zip(finished_images):
+            return False
         return True
 
 
@@ -77,7 +78,7 @@ class PerfectGamesToImage:
                 os.remove(f"output/{self.steam_id}.gif")
             zip_file.close()
         except (zipfile.BadZipFile):
-            for file in os.listdir("/output"):
+            for file in os.listdir("output"):
                 os.remove(file)
             return False
         else:

@@ -19,7 +19,7 @@ import perfect_games_to_image
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY")
+
 
 user_tokens = {}
 

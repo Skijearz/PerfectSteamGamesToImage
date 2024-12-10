@@ -173,7 +173,7 @@ class PerfectGamesToImage:
                 i = 0
                 x_offset = x_padding
                 y_offset += heigth+y_padding
-            if number_images == images_per_col*images_per_row:
+            if number_images % (images_per_col*images_per_row) == 0:
                 images_to_save.append(new_image)
                 new_image = Image.new("RGB",(max_width,max_heigth),BACKGROUND_COLOR)
                 i = 0
